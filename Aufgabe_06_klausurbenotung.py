@@ -193,7 +193,7 @@ eingabe = "ja"
 
 if notenschluessel not in [1, 2, 3]:
 
-    print("Fehler: Unbekannter Notenschlüssel")
+    print("Fehler: Ungültiger Notenschlüssel")
 
 else:
 
