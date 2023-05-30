@@ -6,7 +6,7 @@ Created on Tue May 30 17:04:20 2023
 """
 
 
-
+# Funktion für die Auswahl des Notenschlüssels und Berechnung der Note
 def result(notenschluessel, erreichtepunkte):
 
     if notenschluessel == 1:
@@ -177,72 +177,57 @@ def result(notenschluessel, erreichtepunkte):
             bestanden = "nein"
             return note, bestanden
 
+# Variablendefinition
 erreichtepunkte = []            
-
 bestanden = []           
-
-note_keys = [1, 2, 3]
-
+# note_keys = [1, 2, 3]
 note = []
-
 matrikelnummer = []
-
-notenschluessel = float(input("Welcher Notenschlüssel soll verwenden werden (1, 2 oder 3)?: "))
-
 eingabe = "ja"
 
-if notenschluessel not in [1, 2, 3]:
+# Abfrage des zu verwendenden Notenschlüssels
+notenschluessel = float(input("Welcher Notenschlüssel soll verwenden werden (1, 2 oder 3)?: "))
 
+
+if notenschluessel not in [1, 2, 3]:
+    # Abbruch des Programms, wenn keine gültige Eingabe
     print("Fehler: Ungültiger Notenschlüssel")
 
 else:
-
     while eingabe == 'ja':
-
+        # Eingabe der Matrikelnummer
         matrikelnummer_input = int(input("Matrikelnummer: "))
-
+        
+        # Hinzufügen an die Liste der Matrikelnummern
         matrikelnummer.extend([matrikelnummer_input])
 
+        # Eingabe der erreichten Punkte
         erreichtepunkte_input = float(input("Erreichte Punkte: "))
 
+        # Hinzufügen an die Liste mit den erreichten Punkten
         erreichtepunkte.extend([erreichtepunkte_input])
 
+        # Berechnung der Note und ob bestanden mit Funktion result
         note_value, y = result(notenschluessel, erreichtepunkte)
 
+        # Hinzufügen an die Liste mit den Noten
         note.extend([note_value])
 
+        # Hinzufügen an die Liste ob bestanden
         bestanden.extend([y])
-
+        
+        # Ende der Eingabe, wenn nicht 'ja' eingegeben wird
         eingabe = str(input("Möchten Sie noch weiter Ergebnisse eintragen (ja / nein)?: "))
-
+        
+    # Tabellenausgabe der ersten Zeile Mtr., Punkte, Note, Bestanden
     print("\nMtr.","\t", end='')
-
     print("Punkte","\t", end='')
-
     print("Note","\t", end='')
-
     print("Bestanden","\t")
-
- 
-
-    a = 0
-
-    b = 0
-
-    c = 0
-
-    for x in matrikelnummer:
-
-        print(x,"\t", end='        ')
-
-        print(erreichtepunkte[a],"\t", end='            ')
-
-        print(note[b],"\t", end='')
-
-        print(bestanden[c])
-
-        a = a + 1
-
-        b = b + 1
-
-        c = c + 1
+    
+    # Werte ausgeben in Tabelle
+    for index, x in enumerate(matrikelnummer):
+        print(x,"\t", end='')
+        print(erreichtepunkte[index],"\t", end='')
+        print(note[index],"\t", end='')
+        print(bestanden[index])
