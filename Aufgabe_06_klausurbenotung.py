@@ -12,175 +12,174 @@ def result(notenschluessel, erreichtepunkte):
     if notenschluessel == 1:
         if erreichtepunkte_input >= 86:
             note = 1.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 82:
             note = 1.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 78:
             note = 1.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 74:
             note = 2.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 70:
             note = 2.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 66:
             note = 2.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 62:
             note = 3.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 58:
             note = 3.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 54:
             note = 3.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 50:
             note = 4.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         else:
             note = 5.0
-            bestanden = "nein"
+            bestanden = False
             return note, bestanden
   
     elif notenschluessel == 2:
         if erreichtepunkte_input >= 95:
             note = 1.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 90:
             note = 1.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 85:
             note = 1.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 80:
             note = 2.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 75:
             note = 2.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 70:
             note = 2.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 65:
             note = 3.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 60:
             note = 3.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 55:
             note = 3.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 50:
             note = 4.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         else:
             note = 5.0
-            bestanden = "nein"
+            bestanden = False
             return note, bestanden
         
     elif notenschluessel == 3:
         if erreichtepunkte_input >= 85:
             note = 1.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 80:
             note = 1.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 75:
             note = 1.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 70:
             note = 2.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 65:
             note = 2.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 60:
             note = 2.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 55:
             note = 3.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 50:
             note = 3.3
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 45:
             note = 3.7
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         elif erreichtepunkte_input >= 40:
             note = 4.0
-            bestanden = "ja"
+            bestanden = True
             return note, bestanden
 
         else:
             note = 5.0
-            bestanden = "nein"
+            bestanden = True
             return note, bestanden
 
 # Variablendefinition
-erreichtepunkte = []            
+erreichtePunkte = []            
 bestanden = []           
-# note_keys = [1, 2, 3]
 note = []
 matrikelnummer = []
 eingabe = "ja"
@@ -205,10 +204,10 @@ else:
         erreichtepunkte_input = float(input("Erreichte Punkte: "))
 
         # Hinzufügen an die Liste mit den erreichten Punkten
-        erreichtepunkte.extend([erreichtepunkte_input])
+        erreichtePunkte.extend([erreichtepunkte_input])
 
         # Berechnung der Note und ob bestanden mit Funktion result
-        note_value, y = result(notenschluessel, erreichtepunkte)
+        note_value, y = result(notenschluessel, erreichtePunkte)
 
         # Hinzufügen an die Liste mit den Noten
         note.extend([note_value])
@@ -228,6 +227,10 @@ else:
     # Werte ausgeben in Tabelle
     for index, x in enumerate(matrikelnummer):
         print(x,"\t", end='')
-        print(erreichtepunkte[index],"\t", end='')
+        print(erreichtePunkte[index],"\t", end='')
         print(note[index],"\t", end='')
-        print(bestanden[index])
+        
+        if bestanden[index] is True:
+            print("ja")
+        elif bestanden[index] is False:
+            print("nein")
