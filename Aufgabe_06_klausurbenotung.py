@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May 30 17:04:20 2023
-
-@author: simon
-"""
-
-
 # Funktion für die Auswahl des Notenschlüssels und Berechnung der Note
 def result(notenschluessel, erreichtepunkte):
 
