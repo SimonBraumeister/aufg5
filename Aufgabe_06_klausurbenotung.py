@@ -174,7 +174,7 @@ def result(notenschluessel, erreichtepunkte):
 
         else:
             note = 5.0
-            bestanden = True
+            bestanden = False
             return note, bestanden
 
 # Variablendefinition
@@ -207,13 +207,13 @@ else:
         erreichtePunkte.extend([erreichtepunkte_input])
 
         # Berechnung der Note und ob bestanden mit Funktion result
-        note_value, y = result(notenschluessel, erreichtePunkte)
+        note_value, bestanden_value = result(notenschluessel, erreichtePunkte)
 
         # Hinzufügen an die Liste mit den Noten
         note.extend([note_value])
 
         # Hinzufügen an die Liste ob bestanden
-        bestanden.extend([y])
+        bestanden.extend([bestanden_value])
         
         # Ende der Eingabe, wenn nicht 'ja' eingegeben wird
         eingabe = str(input("Möchten Sie noch weiter Ergebnisse eintragen (ja / nein)?: "))
